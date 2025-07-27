@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changeset/create-enum-status-card.yaml
+  - include:
+      file: db/changelog/changeset/create-tables.yaml
+  - include:
+      file: db/changelog/changeset/create-user-role-table.yaml
