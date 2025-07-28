@@ -3,10 +3,9 @@ databaseChangeLog:
       id: initial-role-user
       author: daniil
       preConditions:
-        - not:
-            - sqlCheck:
-                expectedResult: "0"
-                sql: "SELECT COUNT(*) FROM roles WHERE name = 'USER'"
+        - sqlCheck:
+            expectedResult: "0"
+            sql: "SELECT COUNT(*) FROM roles WHERE name = 'USER'"
       changes:
         - insert:
             tableName: roles
@@ -19,10 +18,9 @@ databaseChangeLog:
       id: initial-role-admin
       author: daniil
       preConditions:
-        - not:
-            - sqlCheck:
-                expectedResult: "0"
-                sql: "SELECT COUNT(*) FROM roles WHERE name = 'ADMIN'"
+        - sqlCheck:
+            expectedResult: "0"
+            sql: "SELECT COUNT(*) FROM roles WHERE name = 'ADMIN'"
       changes:
         - insert:
             tableName: roles
