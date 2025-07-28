@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: initial-role-user
+      author: daniil
+      preConditions:
+        - not:
+            - sqlCheck:
+                expectedResult: "0"
+                sql: "SELECT COUNT(*) FROM roles WHERE name = 'USER'"
+      changes:
+        - insert:
+            tableName: roles
+            columns:
+              - column:
+                  name: name
+                  value: USER
+
+  - changeSet:
+      id: initial-role-admin
+      author: daniil
+      preConditions:
+        - not:
+            - sqlCheck:
+                expectedResult: "0"
+                sql: "SELECT COUNT(*) FROM roles WHERE name = 'ADMIN'"
+      changes:
+        - insert:
+            tableName: roles
+            columns:
+              - column:
+                  name: name
+                  value: ADMIN
