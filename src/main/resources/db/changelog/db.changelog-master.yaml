@@ -7,3 +7,5 @@ databaseChangeLog:
       file: db/changelog/changeset/create-user-role-table.yaml
   - include:
       file: db/changelog/changeset/004-initial-role.yaml
+  - include:
+      file: db/changelog/changeset/005-create-request_block_card_table.yaml

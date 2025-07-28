@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_request_block_card
+      author: daniil
+      changes:
+        - createTable:
+            tableName: request_block_card
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: card_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseTableName: request_block_card
+            baseColumnNames: card_id
+            referencedTableName: cards
+            referencedColumnNames: id
+            constraintName: fk_request_block_card_cards

@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: unique_number_update_card_table
+      author: daniil
+      changes:
+        - addUniqueConstraint:
+            tableName: cards
+            columnNames: number
