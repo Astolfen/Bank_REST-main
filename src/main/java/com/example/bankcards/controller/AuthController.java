@@ -3,6 +3,7 @@ package com.example.bankcards.controller;
 import com.example.bankcards.dto.AuthDto;
 import com.example.bankcards.service.UserPrincipalService;
 import com.example.bankcards.util.JwtUtil;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -24,7 +25,7 @@ public class AuthController {
     private final AuthenticationManager authenticationManager;
 
     @PostMapping("/authenticate")
-    public ResponseEntity<String> login(@RequestBody AuthDto authDto) {
+    public ResponseEntity<String> login(@RequestBody @Valid AuthDto authDto) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(authDto.getUsername(), authDto.getPassword())
         );

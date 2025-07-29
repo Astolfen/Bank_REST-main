@@ -1,6 +1,7 @@
 package com.example.bankcards.service.impl;
 
 import com.example.bankcards.dto.AuthDto;
+import com.example.bankcards.dto.UserDto;
 import com.example.bankcards.entity.Role;
 import com.example.bankcards.entity.User;
 import com.example.bankcards.repository.RoleRepository;
@@ -32,5 +33,20 @@ public class UserServiceImpl implements UserService {
         user.setRoles(List.of(role));
 
         userRepository.save(user);
+    }
+
+    @Override
+    public UserDto getUser(String name) {
+        return null;
+    }
+
+    @Override
+    public UserDto updateUser(UserDto userDto) {
+        return null;
+    }
+
+    @Override
+    public void deleteUser(String name) {
+
     }
 }

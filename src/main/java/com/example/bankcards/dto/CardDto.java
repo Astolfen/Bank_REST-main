@@ -1,10 +1,9 @@
 package com.example.bankcards.dto;
 
 import com.example.bankcards.entity.CardStatus;
-import jakarta.validation.constraints.Digits;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.PositiveOrZero;
-import jakarta.validation.constraints.Size;
+import com.example.bankcards.util.serializer.CardNumberMaskSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,8 +17,11 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CardDto {
-    @NotNull
-    @Size(min = 16, max = 16,message = "Длина номера должна быть 16.")
+
+    @NotBlank
+    @Pattern(regexp = "\\d{16}",
+            message = "Номер карты должен состоять из 16 цифр")
+    @JsonSerialize(using = CardNumberMaskSerializer.class)
     private String number;
 
     @NotNull

@@ -1,7 +1,6 @@
 package com.example.bankcards.dto.error;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Data
@@ -10,7 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 public class ErrorMessageResponseDto {
 
-    @NotNull
+    @NotBlank
     private String dateTime;
 
     @NotBlank
