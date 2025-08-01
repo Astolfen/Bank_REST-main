@@ -26,6 +26,7 @@ public class CardController {
 
     private final CardService cardService;
 
+    //todo заменить на username
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<CardDto> createCard(@RequestBody @Valid UserDto userDto) {
