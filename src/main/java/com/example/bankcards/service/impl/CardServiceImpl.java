@@ -14,6 +14,7 @@ import com.example.bankcards.repository.CardRepository;
 import com.example.bankcards.repository.UserRepository;
 import com.example.bankcards.service.CardService;
 import com.example.bankcards.util.GenerateUtils;
+import com.example.bankcards.util.logger.LogExecutionTime;
 import com.example.bankcards.util.mapper.CardMapper;
 import com.example.bankcards.util.specification.CardSpecification;
 import lombok.RequiredArgsConstructor;
@@ -112,6 +113,7 @@ public class CardServiceImpl implements CardService {
     }
 
     @Override
+    @LogExecutionTime
     public ResponseListCard getCardsByUser(String username, RequestPageable requestPageable) {
         Pageable pageable = PageRequest.of(requestPageable.page(), requestPageable.size(),
                 Sort.by(Sort.Direction.fromString(requestPageable.sortDirection()), requestPageable.sortField()));
